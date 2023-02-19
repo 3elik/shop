@@ -4,6 +4,9 @@ FROM php:7.4-fpm
 ARG user
 ARG uid
 
+RUN pecl install xdebug-3.1.5 \
+    && docker-php-ext-enable xdebug
+
 COPY composer.lock composer.json /var/www/
 
 # Install system dependencies

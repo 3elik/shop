@@ -11,9 +11,14 @@ services:
         container_name: shop-app
         restart: unless-stopped
         tty: true
+        ports:
+            - "9000:9000"
+        extra_hosts:
+            -   "host.docker.internal:host-gateway"
         environment:
             SERVICE_NAME: app
             SERVICE_TAGS: dev
+            PHP_IDE_CONFIG: "serverName=shop"
         working_dir: /var/www/
         volumes:
             - ./:/var/www
