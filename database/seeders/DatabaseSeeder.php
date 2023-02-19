@@ -14,5 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call(CategoryTableSeeder::class);
+        $this->command->info('Category table loaded with data!');
+
+        $this->call(BrandTableSeeder::class);
+        $this->command->info('Brand table loaded with data!');
+
+        $this->call(ProductTableSeeder::class);
+        $this->command->info('Product table loaded with data!');
     }
 }
