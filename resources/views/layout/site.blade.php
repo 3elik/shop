@@ -41,6 +41,9 @@
                 </form>
 
                 <div class="text-end">
+                    <a href="{{ route('basket.index') }}" class="me-2 text-decoration-none">
+                        <img src="/images/icons/basket.svg" alt="Basket" width="40px">
+                    </a>
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
                     <button type="button" class="btn btn-warning">Sign-up</button>
                 </div>
