@@ -11,8 +11,8 @@
 
     <h2>Catalog sections</h2>
     <div class="row">
-        @foreach ($roots as $root)
-            @include('catalog.part.category', ['category' => $root])
+        @foreach ($categories as $category)
+            @include('catalog.part.category', ['category' => $category])
         @endforeach
     </div>
 @endsection
