@@ -29,7 +29,7 @@
             <div class="w-100 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
                 <ul class="nav navbar-nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Catalog</a></li>
+                    <li><a href="{{ route('catalog.index') }}" class="nav-link px-2 text-white">Catalog</a></li>{{--text-secondary --}}
                     <li><a href="#" class="nav-link px-2 text-white">Delivery</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">Contacts</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
