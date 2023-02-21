@@ -22,6 +22,6 @@ Route::get('/', function () {
 Route::get('/', IndexController::class)->name('index');
 
 Route::get('catalog/index', [CatalogController::class, 'index'])->name('catalog.index');
-Route::get('category/category/{slug}', [CatalogController::class, 'category'])->name('catalog.category');
-Route::get('category/brand/{slug}', [CatalogController::class, 'brand'])->name('catalog.brand');
-Route::get('category/product/{slug}', [CatalogController::class, 'product'])->name('catalog.product');
+Route::get('catalog/category/{slug}', [CatalogController::class, 'category'])->name('catalog.category');
+Route::get('catalog/brand/{slug}', [CatalogController::class, 'brand'])->name('catalog.brand');
+Route::get('catalog/product/{slug}', [CatalogController::class, 'product'])->name('catalog.product');
