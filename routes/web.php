@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('catalog/index', [CatalogController::class, 'index'])->name('catalog.index');
+Route::get('category/category/{slug}', [CatalogController::class, 'category'])->name('catalog.category');
+Route::get('category/brand/{slug}', [CatalogController::class, 'brand'])->name('catalog.brand');
+Route::get('category/product/{slug}', [CatalogController::class, 'product'])->name('catalog.product');
