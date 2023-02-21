@@ -26,3 +26,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/storage/
+/public/mix-manifest.json
+/public/css/
+/public/js/
