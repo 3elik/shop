@@ -12,8 +12,8 @@
 <body>
 <header class="p-3 navbar navbar-expand-lg navbar-dark bg-dark text-white">
     <div class="container">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <img src="/images/icons/logo.svg" alt="Shop" width="40px">
+        <a href="/" class="d-flex align-items-center mb-2 me-3 mb-lg-0 text-white text-decoration-none">
+            <i class="fa fa-shopping-bag fa-2x"></i>
         </a>
         <button class="navbar-toggler collapsed"
                 type="button"
@@ -40,9 +40,9 @@
                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                 </form>
 
-                <div class="text-end">
-                    <a href="{{ route('basket.index') }}" class="me-2 text-decoration-none">
-                        <img src="/images/icons/basket.svg" alt="Basket" width="40px">
+                <div class="text-end d-flex">
+                    <a href="{{ route('basket.index') }}" class="me-3 text-decoration-none d-flex align-items-center text-white">
+                        <i class="fa fa-shopping-basket fa-2x"></i>
                     </a>
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
                     <button type="button" class="btn btn-warning">Sign-up</button>

@@ -30,3 +30,7 @@ Route::get('/catalog/product/{slug}', [CatalogController::class, 'product'])->na
 Route::get('/basket/index', [BasketController::class, 'index'])->name('basket.index');
 Route::get('/basket/checkout', [BasketController::class, 'checkout'])->name('basket.checkout');
 Route::post('/basket/add/{id}', [BasketController::class, 'add'])->where('id', '[0-9]+')->name('basket.add');
+Route::post('/basket/increase/{id}', [BasketController::class, 'increase'])->where('id', '[0-9]+')->name('basket.increase');
+Route::post('/basket/decrease/{id}', [BasketController::class, 'decrease'])->where('id', '[0-9]+')->name('basket.decrease');
+Route::post('/basket/remove/{id}', [BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
+Route::post('/basket/clear', [BasketController::class, 'clear'])->name('basket.clear');
