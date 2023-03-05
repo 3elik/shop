@@ -56,14 +56,11 @@
         </div>
     </div>
 </header>
-<div class="container py-5">
-
+<div class="container py-5 sidebar">
     <div class="row">
         <div class="col-md-3">
-            <h4>Catalog sections</h4>
-            <p>here</p>
-            <h4>Popular brands</h4>
-            <p>here</p>
+            @include('layout.part.roots')
+            @include('layout.part.brands')
         </div>
         <div class="col-md-9">
             @yield('content')
