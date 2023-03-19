@@ -45,13 +45,27 @@
                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                 </form>
 
-                <div class="text-end d-flex">
-                    <a href="{{ route('basket.index') }}" class="me-3 text-decoration-none d-flex align-items-center text-white">
-                        <i class="fa fa-shopping-basket fa-2x"></i>
-                    </a>
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
-                </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item d-flex">
+                        <a href="{{ route('basket.index') }}" class="me-3 text-decoration-none d-flex align-items-center text-white">
+                            <i class="fa fa-shopping-basket fa-2x"></i>
+                        </a>
+                    </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class=" btn btn-outline-light me-2" href="{{ route('user.login') }}">Login</a>
+                        </li>
+                        @if(Route::has('user.register'))
+                            <li class="nav-item">
+                                <a class=" btn btn-warning" href="{{ route('user.register') }}">Register</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item">
+                            <a class=" btn btn-warning" href="{{ route('user.index') }}">Account</a>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </div>
@@ -63,6 +77,12 @@
             @include('layout.part.brands')
         </div>
         <div class="col-md-9">
+            @if($message = \Illuminate\Support\Facades\Session::get('success'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{ $message }}
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            @endif
             @yield('content')
         </div>
     </div>

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/', IndexController::class)->name('index');
 
@@ -34,3 +32,8 @@ Route::post('/basket/increase/{id}', [BasketController::class, 'increase'])->whe
 Route::post('/basket/decrease/{id}', [BasketController::class, 'decrease'])->where('id', '[0-9]+')->name('basket.decrease');
 Route::post('/basket/remove/{id}', [BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
 Route::post('/basket/clear', [BasketController::class, 'clear'])->name('basket.clear');
+
+Route::name('user.')->prefix('user')->group(function () {
+    Route::get('index', [UserController::class, 'index'])->name('index');
+    Auth::routes();
+});
