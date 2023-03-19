@@ -63,6 +63,14 @@
                     {{ $message }}
                 </div>
             @endif
+            @if ($errors->any())
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <p>{{ $error }}</p>
+                        <button class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                @endforeach
+            @endif
             @yield('content')
         </div>
     </div>
