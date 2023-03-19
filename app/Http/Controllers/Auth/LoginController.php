@@ -41,8 +41,16 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        return redirect()->route('user.index')
-            ->with('success', 'You are log in.');
+        $route = 'user.index';
+        $message = 'Yor are logged in';
+
+        if ($user->admin) {
+            $route = 'admin.index';
+            $message = 'You are logged in to Control Panel';
+        }
+
+        return redirect()->route($route)
+            ->with('success', $message);
     }
 
     protected function loggedOut(Request $request)

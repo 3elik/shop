@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Admin\IndexController as AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,8 @@ Route::post('/basket/clear', [BasketController::class, 'clear'])->name('basket.c
 Route::name('user.')->prefix('user')->group(function () {
     Route::get('index', [UserController::class, 'index'])->name('index');
     Auth::routes();
+});
+
+Route::name('admin')->prefix('admin')->middleware('auth', 'admin')->group(function () {
+    Route::get('index', [AdminController::class])->name('index');
 });
