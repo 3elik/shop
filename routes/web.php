@@ -33,6 +33,8 @@ Route::post('/basket/increase/{id}', [BasketController::class, 'increase'])->whe
 Route::post('/basket/decrease/{id}', [BasketController::class, 'decrease'])->where('id', '[0-9]+')->name('basket.decrease');
 Route::post('/basket/remove/{id}', [BasketController::class, 'remove'])->where('id', '[0-9]+')->name('basket.remove');
 Route::post('/basket/clear', [BasketController::class, 'clear'])->name('basket.clear');
+Route::post('/basket/save-order', [BasketController::class, 'saveOrder'])->name('basket.save-order');
+Route::get('/basket/success', [BasketController::class, 'success'])->name('basket.success');
 
 Route::name('user.')->prefix('user')->group(function () {
     Route::get('index', [UserController::class, 'index'])->name('index');
