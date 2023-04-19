@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed $category_id
  * @property mixed $brand_id
  */
-class Product extends Model
+abstract class Product extends Model
 {
     use HasFactory;
 
@@ -26,4 +26,15 @@ class Product extends Model
     public function baskets() {
         return $this->belongsToMany(Basket::class)->withPivot('quantity');
     }
+
+    public function parameters() {
+        return $this->hasMany(ProductParameters::class);
+    }
+
+    public function save(array $options = []) {
+        parent::save($options);
+        //TODO Implement save() method.
+        $this->saveParameters();
+    }
+    abstract function saveParameters();
 }
